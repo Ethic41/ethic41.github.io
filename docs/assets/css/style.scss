@@ -7,6 +7,10 @@ header h1 {
     color: #55f921;
 }
 
+header {
+    border-bottom: 1px solid #55f921;
+}
+
 body {
     background: #000000;
     color: #55f921;
@@ -21,5 +25,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 code.highlighter-rouge {
+    color: #e9420f;
+}
+
+small {
     color: #e9420f;
 }
