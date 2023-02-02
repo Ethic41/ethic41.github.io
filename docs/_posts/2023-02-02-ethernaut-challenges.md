@@ -28,10 +28,24 @@ g_net.isConnected()
 True
 ```
 
-- [Level 0](https://ethernaut.openzeppelin.com/level/0xBA97454449c10a0F04297022646E7750b8954EE8)
+- ## [Level 0](https://ethernaut.openzeppelin.com/level/0xBA97454449c10a0F04297022646E7750b8954EE8)
 
 `Difficulty Level: 0/5`
 
 ### task
 
 This level is a sanity check to make sure you understand how to interact with a smart contract.
+
+### solution
+
+```python
+# contract address, can be obtained from the browser console
+# with: contract.address
+contract_addr = "0xC63C2947fcaf80d13D40742A52fF5122fec5B171"
+
+# contract abi, obtain from browser with: contract.abi 
+contract_abi = '[{ redacted due to size }]'
+
+hello_contract = g_net.eth.contract(address=contract_addr, abi=contract_abi)
+
+```
