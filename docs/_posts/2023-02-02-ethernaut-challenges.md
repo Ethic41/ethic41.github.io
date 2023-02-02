@@ -11,7 +11,6 @@ This is a fast-paced walkthrough of the ethernaut challenges using web3.py. The 
 ## Setup
 
 ```python
-{% highlight python %}
 # setup connection to test net
 from web3 import Web3
 
@@ -23,7 +22,6 @@ g_net = Web3(Web3.HTTPProvider("https://rpc.ankr.com/eth_goerli"))
 
 g_net.isConnected()
 
-{% endhighlight %}
 ```
 
 ```bash
@@ -40,7 +38,7 @@ This level is a sanity check to make sure you understand how to interact with a 
 
 ### solution
 
-{% highlight python %}
+```python
 # contract address, can be obtained from the browser console
 # with: contract.address
 contract_addr = "0xC63C2947fcaf80d13D40742A52fF5122fec5B171"
@@ -51,7 +49,6 @@ contract_abi = '[{ redacted due to size }]'
 hello_contract = g_net.eth.contract(address=contract_addr, abi=contract_abi)
 
 hello_contract.functions.info().call()
-{% endhighlight %}
 
 ```
 
