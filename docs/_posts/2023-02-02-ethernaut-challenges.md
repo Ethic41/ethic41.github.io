@@ -11,6 +11,7 @@ This is a fast-paced walkthrough of the ethernaut challenges using web3.py. The 
 ## Setup
 
 ```python
+{% highlight python %}
 # setup connection to test net
 from web3 import Web3
 
@@ -22,13 +23,14 @@ g_net = Web3(Web3.HTTPProvider("https://rpc.ankr.com/eth_goerli"))
 
 g_net.isConnected()
 
+{% endhighlight %}
 ```
 
 ```bash
 True
 ```
 
-- ## [Level 0](https://ethernaut.openzeppelin.com/level/0xBA97454449c10a0F04297022646E7750b8954EE8)
+- ## [Level 0](https://ethernaut.openzeppelin.com/level/0xBA97454449c10a0F04297022646E7750b8954EE8) - Hello Ethernaut
 
 `Difficulty Level: 0/5`
 
@@ -38,7 +40,7 @@ This level is a sanity check to make sure you understand how to interact with a 
 
 ### solution
 
-```python
+{% highlight python %}
 # contract address, can be obtained from the browser console
 # with: contract.address
 contract_addr = "0xC63C2947fcaf80d13D40742A52fF5122fec5B171"
@@ -48,4 +50,17 @@ contract_abi = '[{ redacted due to size }]'
 
 hello_contract = g_net.eth.contract(address=contract_addr, abi=contract_abi)
 
+hello_contract.functions.info().call()
+{% endhighlight %}
+
+```
+
+```bash
+You will find what you need in info1().
+```
+
+```python
+# from the output above, we know we have to make a call
+# to info1()
+hello_contract.functions.info1().call()
 ```
