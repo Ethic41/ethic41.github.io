@@ -53,7 +53,7 @@ hello_contract.functions.info().call()
 ```
 
 ```bash
-You will find what you need in info1().
+'You will find what you need in info1().'
 ```
 
 ```python
@@ -61,3 +61,62 @@ You will find what you need in info1().
 # to info1()
 hello_contract.functions.info1().call()
 ```
+
+```bash
+'Try info2(), but with "hello" as a parameter.'
+```
+
+```python
+# calling info2(), with 'hello' parameter
+hello_contract.functions.info2('hello').call()
+```
+
+```bash
+'The property infoNum holds the number of the next info method to call.'
+```
+
+```python
+hello_contract.functions.infoNum().call()
+```
+
+```bash
+42
+```
+
+```python
+hello_contract.functions.info42().call()
+```
+
+```bash
+'theMethodName is the name of the next method.'
+```
+
+```python
+hello_contract.functions.theMethodName().call()
+```
+
+```bash
+'The method name is method7123949.'
+```
+
+```python
+hello_contract.functions.method7123949().call()
+```
+
+```bash
+'If you know the password, submit it to authenticate().'
+```
+
+```python
+hello_contract.functions.password().call()
+```
+
+```bash
+'ethernaut0'
+```
+
+```python
+hello_contract.functions.authenticate('ethernaut0').call()
+```
+
+submit the contract and challenge solved.
