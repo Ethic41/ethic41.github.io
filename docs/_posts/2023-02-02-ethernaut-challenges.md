@@ -1,0 +1,37 @@
+---
+layout: post
+title:  Ethernaut Challenges with web3.py
+date:   2023-01-22 11:50:16 +0100
+categories: init
+post_id: 2
+---
+
+This is a fast-paced walkthrough of the ethernaut challenges using web3.py. The goal is to get you up and running with web3.py and the ethernaut challenges as quickly as possible. If you want to learn more about web3.py, check out the [web3.py documentation](https://web3py.readthedocs.io/en/stable/).
+
+## Setup
+
+```python
+# setup connection to test net
+from web3 import Web3
+
+# connect to a local net
+l_net = Web3(Web3.HTTPProvider("http://127.0.0.1:8545"))
+
+# connect to goerli network
+g_net = Web3(Web3.HTTPProvider("https://rpc.ankr.com/eth_goerli"))
+
+g_net.isConnected()
+
+```
+
+```bash
+True
+```
+
+- [Level 0](https://ethernaut.openzeppelin.com/level/0xBA97454449c10a0F04297022646E7750b8954EE8)
+
+`Difficulty Level: 0/5`
+
+### task
+
+This level is a sanity check to make sure you understand how to interact with a smart contract.
