@@ -184,6 +184,8 @@ contract Fallback {
 
 ### level_1 Solution
 
+From the problem statement our task is to own the contract and steal all the funds, to steal the funds from the contract we just need to be the owner of the contract and call the `withdraw()` function. But the withdraw function can only be called by the owner, due to the `onlyOwner` modifier, therefore we have to figure out a way to take ownership. Looking closely at the `contribute` function, it can be seen that we can take ownership of the contract when we send a contribution to it and our total contribution is greater than that of the current owner, `owner = msg.sender`. But this seems very difficult because of the check `require(msg.value < 0.001 ether)`, since it will take a lot of time before we can match the owners contribution (`1000 * (1 ether)`). But all hope is not lost since we have a `receive()` function that accomplish the same objective (`owner = msg.sender`) all we have to do is make sure we pass the check `require(msg.value > 0 && contributions[msg.sender] > 0)`. The following contract solves the problem.
+
 `fallback_attack.sol`
 
 ```solidity
@@ -222,3 +224,27 @@ contract AttackFallback {
 }
 
 ```
+
+We deploy the `fallback_attack.sol` contract, we then call the `makeContribution()` function, afterwards we call the `ownTheContract()` and `lootContract()` consecutively to solve the challenge. We accomplish that with following python code:
+
+```python
+# use the address you deployed ur
+# attack contract at
+contract_addr = '0x1234567890'
+
+contract_abi = '[{ the attack contract abi here }]'
+
+attack_contract = g_net.eth.contract(address=contract_addr, abi=contract_abi)
+
+# call the makeContribution() function
+attack_contract.functions.makeContribution().transact()
+
+# call the ownTheContract() function
+attack_contract.functions.ownTheContract().transact()
+
+# call the lootContract() function
+attack_contract.functions.lootContract().transact()
+
+```
+
+Note that we could easily have combined all the functions into one function and call it once in the solidity contract, but I decided to split it up to demonstrate how to use web3.py.
