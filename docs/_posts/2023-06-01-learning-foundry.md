@@ -21,3 +21,31 @@ Foundry installation is straight-forward, there are several options for installi
 ```bash
 curl -L https://foundry.paradigm.xyz | bash
 ```
+
+### First steps with Foundry
+
+To initialize a new project with foundry called `learning_foundry`:
+
+```bash
+forge init learning_foundry
+```
+
+This initializes a git repository named `learning_foundry` in your working directory with a few folders, the most useful ones being `lib`, `script`, `src`, and `test`. The `src` folder is where you will write all your contracts and codes, by default it start with a `Counter.sol` contract. The `test` folder is where all your tests will go and by default it contains `Counter.t.sol` test contract. The `lib` folder is where all your libraries will be housed and by default the `forge-std` library is installed during initialization. A good thing about Foundry is that almost everything is customizable, so the above directory structure is not carved in stone, if you need to customize you can check the [foundry documentation](https://book.getfoundry.sh/).
+
+After initializing a project and probably adding some new code to the `src` folder, you can use forge to compile and build your contracts as follows:
+
+```bash
+forge build
+```
+
+The output of the build can be found in the `out` folder.
+
+To test your code, you write all your tests (more on how to write test later) in the `test` folder and run:
+
+```bash
+forge test
+```
+
+So far we've learned to use `forge` to initialize, build and test our contract (at least the default one). Next we will dive deeper into Foundry to see what it has to offer.
+
+
