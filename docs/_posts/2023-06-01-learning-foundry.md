@@ -48,4 +48,19 @@ forge test
 
 So far we've learned to use `forge` to initialize, build and test our contract (at least the default one). Next we will dive deeper into Foundry to see what it has to offer.
 
+### VSCode Setup
 
+Since we will be writing a lot of code in later section it makes sense to setup VSCode. Add the following configuration into `.vscode/setting.json` file:
+
+```json
+{
+    "solidity.packageDefaultDependenciesContractsDirectory": "src",
+    "solidity.packageDefaultDependenciesDirectory": "lib",
+
+    "editor.formatOnSave": true,
+    "[solidity]": {
+        "editor.defaultFormatter": "JuanBlanco.solidity"
+    },
+    "solidity.formatter": "forge",
+}
+```
