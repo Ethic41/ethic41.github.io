@@ -50,7 +50,7 @@ So far we've learned to use `forge` to initialize, build and test our contract (
 
 ### VSCode Setup
 
-Since we will be writing a lot of code in later section it makes sense to setup VSCode. Add the following configuration into `.vscode/setting.json` file:
+Since we will be writing a lot of code in later sections it makes sense to setup VSCode. Add the following configuration into `.vscode/setting.json` file:
 
 ```json
 {
@@ -64,3 +64,32 @@ Since we will be writing a lot of code in later section it makes sense to setup 
     "solidity.formatter": "forge",
 }
 ```
+
+## Managing Dependencies with Foundry
+
+Foundry provides a flexible way to manage dependencies with `forge`. Forge utilizes the robust dependency management of `git submodules` to manage dependencies, this means that every dependency is a git submodule and also any Github repository can be used as a dependency. Below is an example of adding a new dependency:
+
+```bash
+forge install transmissions11/solmate
+```
+
+The above command pull the latest master branch of the repository `solmate` by the github user `transmissions11` and adds it as a dependency to your project in the `lib` folder. You can also pull a different branch as follows:
+
+```bash
+forge install transmissions11/solmate@v7
+```
+
+To update a dependency:
+
+```bash
+forge update lib/solmate
+```
+
+To remove a dependency:
+
+```bash
+forge remove solmate
+```
+
+In my opinion, this approach to dependency management is really clean and easy.
+
