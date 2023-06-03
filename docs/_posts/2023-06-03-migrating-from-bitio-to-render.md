@@ -8,7 +8,7 @@ post_id: 4
 
 On the 30th of May, 2023 I got an email from [bit.io](https://bit.io/) (database as a service company) that they will be joining Databricks, a fancy way of saying that they are changing their business and I should take my stuff (databases) somewhere else. Bit.io offers a free database (PostgreSQL) in the cloud for hobbyists and beginners to test things out, and I have been using it to store databases for my test projects. In this post, I will walk you through how I will migrate the database from Bitio to [Render](https://render.com/) (another cloud provider).
 
-NB: I assume you know how to obtain database connection strings from Render and Bit.io
+NB: I assume you know how to obtain database connection strings from Render and Bit.io, if not check their various websites for documentation
 
 ## Migration
 
