@@ -32,7 +32,7 @@ forge init learning_foundry
 
 This initializes a git repository named `learning_foundry` in your working directory with a few folders, the most useful ones being `lib`, `script`, `src`, and `test`. The `src` folder is where you will write all your contracts and codes, by default, it starts with a `Counter.sol` contract. The `test` folder is where all your tests will go and it contains the `Counter.t.sol` test contract. The `lib` folder is where all your libraries will be housed and by default, the `forge-std`` library is installed during initialization. A good thing about Foundry is that almost everything is customizable, so the above directory structure is not carved in stone, if you need to customize you can check the [Foundry documentation](https://book.getfoundry.sh/).
 
-After initializing a project and probably adding some new code to the `src` folder, you can use forge to compile and build your contracts as follows:
+After initializing a project and probably adding some new code to the `src` folder, you can use Forge to compile and build your contracts as follows:
 
 ```bash
 forge build
@@ -92,4 +92,3 @@ forge remove solmate
 ```
 
 In my opinion, this approach to dependency management is really clean and easy.
-
