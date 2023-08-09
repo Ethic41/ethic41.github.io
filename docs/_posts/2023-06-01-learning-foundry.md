@@ -59,7 +59,7 @@ Since we will be writing a lot of code in later sections it makes sense to set u
 
     "editor.formatOnSave": true,
     "[solidity]": {
-        "editor.defaultFormatter": "JuanBlanco.solidity"
+        "editor.defaultFormatter": "NomicFoundation.hardhat-solidity"
     },
     "solidity.formatter": "forge",
 }
@@ -92,3 +92,41 @@ forge remove solmate
 ```
 
 In my opinion, this approach to dependency management is really clean and easy.
+
+## Testing with Foundry
+
+In foundry, all tests are written in solidity, this avoids the need for context switching between multiple languages as in the case of hardhat. To write a test, you create a new file in the `test` folder with the extension `.t.sol`. To run all tests in the `test` folder:
+
+```bash
+forge test
+```
+
+Here's an example of running the `forge test` command in a freshly created project, that only has the default test:
+
+```bash
+$ forge test
+No files changed, compilation skipped
+
+Running 2 tests for test/Counter.t.sol:CounterTest
+[PASS] testIncrement() (gas: 28312)
+[PASS] testSetNumber(uint256) (runs: 256, μ: 27376, ~: 28387)
+Test result: ok. 2 passed; 0 failed; finished in 24.43ms
+```
+
+Specific tests can be run with:
+
+```bash
+forge test --match-contract SomeContract --match-test testSomeFunction
+```
+
+glob pattern can be used to run tests that match a filename pattern:
+
+```bash
+forge test --match-path test/SomeContract.t.sol
+```
+
+By default, the `forge test` command will only display a summary of passing and failing tests. To increase the verbosity of the output, you can use the -v flag:
+
+```bash
+forge test -vvvvv
+```
