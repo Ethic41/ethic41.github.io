@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  SQL Injection Labs
-date:   2023-06-01 03:49:10 +0100
+date:   2023-10-11 03:49:10 +0100
 categories: sql-injection
 post_id: 5
 ---
@@ -15,9 +15,11 @@ What follows is solution to various sql injection labs. The labs are from [Ports
 ### Task
 
 ***This lab contains a SQL injection vulnerability in the product category filter. When the user selects a category, the application carries out a SQL query like the following:***
+
 ```sql
 SELECT * FROM products WHERE category = 'Gifts' AND released = 1
 ```
+
 ***To solve the lab, perform a SQL injection attack that causes the application to display one or more unreleased products.***
 
 ### Solution
