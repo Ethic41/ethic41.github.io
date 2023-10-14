@@ -47,7 +47,7 @@ Accept-Language: en-US,en;q=0.9
 
 The image below shows the response to the above request:
 
-![lab1](../assets/images/posts/sql-injection-labs/2023-10-12_16-09_normal_response.png)
+![lab1](./2023-10-11-sql-injection-labs-assets/2023-10-12_16-09_normal_response.png)
 
 We can see from the above response only 3 products are displayed. To solve the lab we will attempt to comment out the `AND released = 1` part of the query and see if we can get the unreleased products. To do this we will use the `--` comment syntax. The `--` syntax comments out everything after it. So we will send the following request:
 
@@ -74,11 +74,11 @@ Accept-Language: en-US,en;q=0.9
 
 The image below shows the response to the above request:
 
-![lab1](../assets/images/posts/sql-injection-labs/2023-10-12_17-27_response_with_injection.png)
+![lab1](./2023-10-11-sql-injection-labs-assets/2023-10-12_17-27_response_with_injection.png)
 
 We can see that 4 products are now displayed, which means we have successfully injected the query. And that's it for lab 1 we have successfully view an unreleased product.
 
-![lab1](../../../ethic41.github.io/docs/assets/images/posts/sql-injection-labs/2023-10-12_17-31_lab1_solved.png)
+![lab1](./2023-10-11-sql-injection-labs-assets/2023-10-12_17-31_lab1_solved.png)
 
 ### [Lab 2: SQL injection vulnerability allowing login bypass](https://portswigger.net/web-security/sql-injection/lab-login-bypass)
 
