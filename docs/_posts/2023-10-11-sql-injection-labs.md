@@ -78,7 +78,7 @@ The image below shows the response to the above request:
 
 We can see that 4 products are now displayed, which means we have successfully injected the query. And that's it for lab 1 we have successfully view an unreleased product.
 
-![lab1](./2023-10-11-sql-injection-labs-assets/2023-10-12_17-31_lab1_solved.png)
+![lab1](2023-10-11-sql-injection-labs-assets/2023-10-12_17-31_lab1_solved.png)
 
 ### [Lab 2: SQL injection vulnerability allowing login bypass](https://portswigger.net/web-security/sql-injection/lab-login-bypass)
 
