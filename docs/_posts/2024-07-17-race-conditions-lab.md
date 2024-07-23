@@ -199,3 +199,25 @@ Response image below:
 ![lab2](https://ethic41.github.io/assets/images/posts/race-conditions-labs/2024-07-18_01-51_lab2_solved.png)
 
 Lab 2 solved.
+
+### [Lab 3: Multi-endpoint race conditions](https://portswigger.net/web-security/race-conditions/lab-race-conditions-multi-endpoint)
+
+### Lab 3 Task
+
+***This lab's purchasing flow contains a race condition that enables you to purchase items for an unintended price.***
+
+***To solve the lab, successfully purchase a Lightweight L33t Leather Jacket.***
+
+**You can log in to your account with the following credentials: *wiener:peter*.**
+
+### Lab 3 Solution
+
+The name of the lab suggests we have to exploit a race condition between multiple endpoints. We start out with $100 in our account and the *Lightweight L33t Leather Jacket* costs $1337.00. So we need to figure out a way to purchase the jacket for $100 or less.
+
+![lab3-initial-store-credits](https://ethic41.github.io/assets/images/posts/race-conditions-labs/2024-07-23_02-41_lab3_store-credit.png)
+
+The lab has a functionality that allows us to add items to our cart and also checkout. Since during the checkout process payment is also made, it made sense to try adding more items to the cart once the checkout process has started. Using the single packet attack we can send multiple requests in parallel to add more items to the cart. We first add to items to the cart each worth $10, we also add the checkout request to the repeater group, we then add the request to add the jacket to the cart to the repeater group. When the requests are sent the checkout process begins the system checks if the user has enough funds to purchase the items in the cart, but before the order is completed the request to add the jacket to the cart is received and the jacket is added to the cart, when the order gets completed the jacket is also included in the order and the lab is solved. The image below shows the setup:
+
+![lab3-solved-repeater-setup](https://ethic41.github.io/assets/images/posts/race-conditions-labs/2024-07-23_03-08_lab3_solved.png)
+
+Lab 3 solved.
