@@ -221,3 +221,38 @@ The lab has a functionality that allows us to add items to our cart and also che
 ![lab3-solved-repeater-setup](https://ethic41.github.io/assets/images/posts/race-conditions-labs/2024-07-23_03-08_lab3_solved.png)
 
 Lab 3 solved.
+
+### [Lab 4: Single-endpoint race conditions](https://portswigger.net/web-security/race-conditions/lab-race-conditions-single-endpoint)
+
+### Lab 4 Task
+
+***This lab's email change feature contains a race condition that enables you to associate an arbitrary email address with your account.***
+
+***Someone with the address carlos@ginandjuice.shop has a pending invite to be an administrator for the site, but they have not yet created an account. Therefore, any user who successfully claims this address will automatically inherit admin privileges.***
+
+***To solve the lab:***
+
+- **Identify a race condition that lets you claim an arbitrary email address.**
+- **Change your email address to carlos@ginandjuice.shop.**
+- **Access the admin panel.**
+- **Delete the user carlos**
+
+**You can log in to your own account with the following credentials: *wiener:peter*.**
+
+***You also have access to an email client, where you can view all emails sent to @exploit-<YOUR-EXPLOIT-SERVER-ID>.exploit-server.net addresses.***
+
+This one is really easy, because everything is keyed on my session id, all we have to do is use the update email address functionality, we queue up a bunch of requests to change the email address in burp repeater group, the request will contain both the email address of the user we are trying to takeover, with a few tries we will receive an email in our mail client with the admin confirmation link, we can then use the link to confirm the email change and solve the lab. The image below shows the setup:
+
+![lab4-repeater-setup](https://ethic41.github.io/assets/images/posts/race-conditions-labs/2024-07-25_02-31_lab4_setup.png)
+
+We then get the email in our mail client:
+
+![lab4-email](https://ethic41.github.io/assets/images/posts/race-conditions-labs/2024-07-25-02-34_lab4_mail.png)
+
+Once we confirm the email change we can access the admin panel and delete the user *carlos* to solve the lab.
+
+![lab4-admin-panel](https://ethic41.github.io/assets/images/posts/race-conditions-labs/2024-07-25-02-37_lab4_admin.png)
+
+![lab4-delete-user](https://ethic41.github.io/assets/images/posts/race-conditions-labs/2024-07-25-02-42_lab4_users.png)
+
+![lab4-solved](https://ethic41.github.io/assets/images/posts/race-conditions-labs/2024-07-25-02-40_lab4_solved.png)
