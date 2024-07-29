@@ -257,4 +257,4 @@ Once we confirm the email change we can access the admin panel and delete the us
 
 ![lab4-solved](https://ethic41.github.io/assets/images/posts/race-conditions-labs/2024-07-25-02-40_lab4_solved.png)
 
-https://github.com/Ethic41/learning_rust/blob/d6beb2a82b17563ecf563fee0dff5ceceeeafb62/src/1-hello-world/hello.rs#L1-L13
+
