@@ -6,7 +6,7 @@ categories: blockchain
 post_id: 7
 ---
 
-Solutions to the [OnlyPwner](https://onlypwner.xyz/leaderboard) challenges. This is not a walkthrough, just a self reference for my future self. Also, the platform frowns upon sharing writeups publicly.
+Solutions to the [OnlyPwner](https://onlypwner.xyz/leaderboard) challenges. This is not a walkthrough, just a reference for my future self. Also, the platform frowns upon sharing writeups publicly.
 
 ### [Challenge 1 - FREEBIE](https://onlypwner.xyz/challenges/5)
 
