@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  OnlyPwner Challenges
-date:   2024-08-25 02:39:33
+date:   2024-08-25 02:39:33 +0100
 categories: blockchain
 post_id: 7
 ---
