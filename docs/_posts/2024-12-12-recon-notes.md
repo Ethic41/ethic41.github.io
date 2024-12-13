@@ -27,3 +27,20 @@ It's important to analyze every directory for potential directory listings, some
 ### Directory brute-forcing
 
 Performing informed directory brute-forcing can be very useful in finding hidden directories and files. It's important to use a good wordlist and also to use tools that can perform recursive brute-forcing. Curating a good wordlist and understanding the target's technology stack can be very helpful in this process.
+
+### VHOST brute-forcing
+
+Playing around with the host header can sometimes reveal more information about the target or reveal more targets. More on vhost discovery later
+
+### TLS Certificates
+
+TLS Certificates contain alternate names and can be source of information
+
+## Tools
+
+### [Amass](https://github.com/owasp-amass/amass)
+
+Created by OWASP, Amass has in-depth attack surface discovery capability.
+
+- [Intigriti on Amass](https://blog.intigriti.com/hacking-tools/hacker-tools-amass-hunting-for-subdomains)
+
