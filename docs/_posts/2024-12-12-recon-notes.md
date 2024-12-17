@@ -36,6 +36,18 @@ Playing around with the host header can sometimes reveal more information about 
 
 TLS Certificates contain alternate names and can be source of information
 
+### Load balancing
+
+Sometimes multiple backends can be serving request for a single web application, it can be useful to send the same request times to see if the response changes, this can be an indicator of multiple backends.
+
+### TXT Records
+
+TXT records can contain sometimes contain useful information so it's worth looking into.
+
+### Public assets directories
+
+Public assets directories can sometimes contain sensitive information like API keys, etc. It's important to look into them.
+
 ## Tools
 
 ### [Amass](https://github.com/owasp-amass/amass)
