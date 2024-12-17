@@ -43,4 +43,3 @@ TLS Certificates contain alternate names and can be source of information
 Created by OWASP, Amass has in-depth attack surface discovery capability.
 
 - [Intigriti on Amass](https://blog.intigriti.com/hacking-tools/hacker-tools-amass-hunting-for-subdomains)
-
