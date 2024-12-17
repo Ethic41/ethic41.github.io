@@ -50,8 +50,25 @@ Public assets directories can sometimes contain sensitive information like API k
 
 ## Tools
 
-### [Amass](https://github.com/owasp-amass/amass)
+### **ASN Enumeration**
+
+ASN do not provide the complete picture of a target due to advent of cloud services and CDNs.
+
+#### [bgp.he.net](https://bgp.he.net/)
+
+Website but really reliable and accurate.
+
+#### [ASNLookup](https://github.com/yassineaboukir/Asnlookup)
+
+python script that leverages asnlookup.com free api
+
+#### [Amass](https://github.com/owasp-amass/amass)
 
 Created by OWASP, Amass has in-depth attack surface discovery capability.
 
 - [Intigriti on Amass](https://blog.intigriti.com/hacking-tools/hacker-tools-amass-hunting-for-subdomains)
+
+### **Subdomain Enumeration**
+
+#### Linked Discovery
+
