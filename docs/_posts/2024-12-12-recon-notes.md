@@ -82,6 +82,8 @@ Created by OWASP, Amass has in-depth attack surface discovery capability.
 
 ### [Subfinder](https://github.com/projectdiscovery/subfinder)
 
+### [Subdominator](https://github.com/RevoltSecurities/Subdominator)
+
 ### ***Guessing & Bruteforcing***
 
 ### [shuffleDNS](https://github.com/projectdiscovery/shuffledns)
