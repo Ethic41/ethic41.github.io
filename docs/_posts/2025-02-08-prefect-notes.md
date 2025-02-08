@@ -19,6 +19,7 @@ This notes will be most useful for anyone trying to setup a standalone Prefect s
 - **Disk**: 10GB
 - **External IPs**: None
 - **Internal IPs**: 1
+- **Firewall Rules**: Allow port `4200` for prefect server
 
 ### Installation
 
@@ -56,3 +57,29 @@ We will be using the `prefect.toml` file to configure the server. If you've star
 $ ls ~/.prefect
 memo_store.toml  prefect.db  prefect.toml  profiles.toml
 ```
+
+The `prefect.db` file is the sqlite database used by the server when you haven't configured an external database. The `prefect.toml` file is the configuration file for the server. Here's a sample configuration:
+
+```toml
+# ~/.prefect/prefect.toml
+
+[server.api]
+host = "0.0.0.0"
+port = 4200
+auth_string = "deadbeefcafebabedeadbeefcafebabedadbabecafedad"
+
+[server.ui]
+api_url = "https://prefect.yourdomain.com/api"
+
+[server.database]
+connection_url = "postgresql+asyncpg://postgres:password@10.104.120.4:5432/prefect-db"
+migrate_on_start = "True"
+```
+
+#### Config Breakdown
+
+- `server.api`: This section configures the API server. The `host` and `port` are the address and port the server will listen on. The `auth_string` is the token used to authenticate with the server, it's important to keep this secret.
+
+- `server.ui`: This section configures the UI server. The `api_url` is the URL to the API server.
+
+- `server.database`: This section configures the database connection. The `connection_url` is the URL to the postgresql database. The `migrate_on_start` is a boolean that tells the server to run migrations on start.
