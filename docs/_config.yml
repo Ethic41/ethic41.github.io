@@ -21,10 +21,10 @@
 title: Dahir Muhammad Dahir
 email: dahirmuhammad3@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  An attempt to document my journey with computers and life
+  the universe was designed with rules; I intend to break some of them
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: thelightf1nder
+twitter_username: dahir_ng
 github_username:  ethic41
 
 # Build settings
