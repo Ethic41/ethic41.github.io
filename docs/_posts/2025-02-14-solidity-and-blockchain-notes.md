@@ -25,7 +25,7 @@ uint 256 result = 200 * 75 / 1000
 
 ```
 
-- **When divding 2 numbers and the numerator is greater than the denominator then the result will be 0.**
+- **When dividing 2 numbers and the numerator is greater than the denominator then the result will be 0.**
 
 ```solidity
 
@@ -45,7 +45,7 @@ This is because solidity does not allow floats as floats are not deterministic, 
 
 ### Overflow and Underflow
 
-Prior to solidity version 0.8 overflow and underflow were not checked by default. This means that if you add 1 to the maximum value of a uint256, the value will wrap around to 0. This can be a security risk if not properly handled. 
+Prior to solidity version 0.8 overflow and underflow were not checked by default. This means that if you add 1 to the maximum value of a uint256, the value will wrap around to 0. This can be a security risk if not properly handled.
 
 ```solidity
 uint256 max = 2**256 - 1;
