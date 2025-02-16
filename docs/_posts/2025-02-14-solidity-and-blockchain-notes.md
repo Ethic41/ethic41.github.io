@@ -55,4 +55,4 @@ uint256 overflow = max + 1;
 
 starting from solidity version 0.8, overflow and underflow are checked by default. This means that if you add 1 to the maximum value of a uint256, the transaction will revert.
 
-![overflow and underflow](https://ethic41.github.io/assets/images/posts/solidity-and-blockchain/1-overflow-underflow.png)
+![overflow and underflow](https://ethic41.github.io/assets/images/posts/solidity-and-blockchain/2-overflow-underflow.png)
