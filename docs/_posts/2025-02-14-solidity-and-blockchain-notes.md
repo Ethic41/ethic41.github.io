@@ -42,3 +42,17 @@ Below is a result from `chisel`, a commandline tool part of the `foundry` toolch
 ![wrong division](https://ethic41.github.io/assets/images/posts/solidity-and-blockchain/1-wrong-division.png)
 
 This is because solidity does not allow floats as floats are not deterministic, and the blockchain needs to be deterministic.
+
+### Overflow and Underflow
+
+Prior to solidity version 0.8 overflow and underflow were not checked by default. This means that if you add 1 to the maximum value of a uint256, the value will wrap around to 0. This can be a security risk if not properly handled. 
+
+```solidity
+uint256 max = 2**256 - 1;
+uint256 overflow = max + 1;
+// overflow is 0
+```
+
+starting from solidity version 0.8, overflow and underflow are checked by default. This means that if you add 1 to the maximum value of a uint256, the transaction will revert.
+
+![overflow and underflow](https://ethic41.github.io/assets/images/posts/solidity-and-blockchain/1-overflow-underflow.png)
