@@ -76,3 +76,36 @@ contract ExampleContract {
 }
 
 ```
+
+- **Trying to access the value of an empty array will revert**
+
+```solidity
+uint256[] memory numbers;
+// add item to the array
+numbers.push(10);
+
+uint256 number = numbers[0]; // this will revert
+
+```
+
+- **Passing more element than the array can hold will revert for a fixed-size array**
+
+```solidity
+uint256[3] memory numbers;
+numbers[3] = 10; // this will revert
+```
+
+- **String concatenation support was added in ^0.8.12**
+
+```solidity
+
+pragma solidity ^0.8.12;
+contract ExampleContract {
+    function useArrays(string calldata user) 
+        public 
+        pure 
+        returns(string memory) {
+            return string.concat("hello ", user);
+    }
+}
+```
