@@ -41,3 +41,4 @@ Below is a result from `chisel`, a commandline tool part of the `foundry` toolch
 
 ![wrong division](https://ethic41.github.io/assets/images/posts/solidity-and-blockchain/1-wrong-division.png)
 
+This is because solidity does not allow floats as floats are not deterministic, and the blockchain needs to be deterministic.
