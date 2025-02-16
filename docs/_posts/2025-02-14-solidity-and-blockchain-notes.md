@@ -56,3 +56,23 @@ uint256 overflow = max + 1;
 starting from solidity version 0.8, overflow and underflow are checked by default. This means that if you add 1 to the maximum value of a uint256, the transaction will revert.
 
 ![overflow and underflow](https://ethic41.github.io/assets/images/posts/solidity-and-blockchain/2-overflow-underflow.png)
+
+### Arrays and Strings
+
+The function argument for arrays and strings is `calldata` and the function argument for the return type is `memory`. The `calldata` "refer to the data in the ethereum transaction itself". `memory` is similar to `heap` in other languages like C++.
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract ExampleContract {
+    function booleanArrayExample(bool[] calldata input) public pure returns (bool[] memory) {
+        return input;
+    }
+
+    function addressArrayExample(address[] calldata input) public pure returns (address[] memory) {
+        return input;
+    }
+}
+
+```
