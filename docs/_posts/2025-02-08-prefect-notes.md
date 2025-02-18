@@ -36,6 +36,7 @@ This notes will be most useful for anyone trying to setup a standalone Prefect s
   ```bash
   # Install prefect
   $ uv tool install prefect
+  $ uv tool install prefect-gcp
 
   # check version
   $ prefect version
