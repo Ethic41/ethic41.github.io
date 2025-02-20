@@ -109,3 +109,51 @@ contract ExampleContract {
     }
 }
 ```
+
+- **Uninitialized values can have unintended consequences if not carefully put into consideration**
+
+```solidity
+
+// notice that `uint256 i` is not initialized, so it's value is 0
+function filterOdd(uint256[] memory _arr) public view returns (uint256[] memory){
+        uint256[] memory evenNumbers = new uint256[](_arr.length);
+        uint256 count = 0;
+
+        for (uint256 i; i < _arr.length; i++){
+            if (_arr[i] % 2 == 0){
+                evenNumbers[count] = _arr[i];
+                count += 1;
+            }
+        }
+
+        return evenNumbers;
+    }
+
+// correct implementation should be
+function filterOdd(uint256[] memory _arr) public view returns (uint256[] memory){
+        uint256[] memory evenNumbers = new uint256[](_arr.length);
+        uint256 count = 0;
+
+        for (uint256 i = 1; i < _arr.length; i++){
+            if (_arr[i] % 2 == 0){
+                evenNumbers[count] = _arr[i];
+                count += 1;
+            }
+        }
+
+        return evenNumbers;
+    }
+
+```
+
+### Storage
+
+- **A storage variable with `internal` modifier is not visible to other contracts but is still stored on the blockchain and visible to anyone who reads the blockchain.**
+
+```solidity
+contract ExampleContract {
+    uint256 internal secretNumber = 42;
+}
+
+```
+
