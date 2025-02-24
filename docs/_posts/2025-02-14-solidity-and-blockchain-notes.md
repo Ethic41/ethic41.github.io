@@ -157,3 +157,24 @@ contract ExampleContract {
 
 ```
 
+- **Accessing a mapping with a key that does not exist will return the default value of the data type**
+
+```solidity
+mapping(address => uint256) public balances;
+
+function getBalance(address _address) public view returns (uint256){
+    return balances[_address];
+}
+
+// if the address does not exist in the mapping, the function will return 0
+```
+
+- **Mapping can only be declared as storage, you cannot declare them in a function**
+
+```solidity
+// this will not work
+function getBalance(address _address) public view returns (uint256){
+    mapping(address => uint256) storage balances;
+    return balances[_address];
+}
+```
