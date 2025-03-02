@@ -94,15 +94,15 @@ Created by OWASP, Amass has in-depth attack surface discovery capability.
 
 ### ***Guessing & Bruteforcing***
 
-### [shuffleDNS](https://github.com/projectdiscovery/shuffledns)
+- ### [shuffleDNS](https://github.com/projectdiscovery/shuffledns)
 
-### [altDNS](https://github.com/infosec-au/altdns)
+- ### [altDNS](https://github.com/infosec-au/altdns)
 
 ### ***Crawling***
 
-### [GoSpider](https://github.com/jaeles-project/gospider)
+- ### [GoSpider](https://github.com/jaeles-project/gospider)
 
-### [Hakrawler](https://github.com/hakluke/hakrawler)
+- ### [Hakrawler](https://github.com/hakluke/hakrawler)
 
 ## **Wordlists**
 
