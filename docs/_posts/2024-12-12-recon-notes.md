@@ -68,24 +68,42 @@ Created by OWASP, Amass has in-depth attack surface discovery capability.
 
 - [Intigriti on Amass](https://blog.intigriti.com/hacking-tools/hacker-tools-amass-hunting-for-subdomains)
 
-## **Subdomain Enumeration**
+## **Recon Tools**
 
-### ***Linked Discovery***
+### ***Subdomain Enumeration***
 
-### [GoSpider](https://github.com/jaeles-project/gospider)
+- ### [aiodnsbrute](https://github.com/blark/aiodnsbrute)
 
-### [Hakrawler](https://github.com/hakluke/hakrawler)
+- ### [amass](https://github.com/owasp-amass/amass)
 
-### ***Analyzing JavaScript***
+- ### [hosthunter](https://github.com/SpiderLabs/HostHunter)
 
-### [Subdomainizer](https://github.com/nsonaniya2010/SubDomainizer)
+- ### [mksub](https://github.com/trickest/mksub)
 
-### [Subfinder](https://github.com/projectdiscovery/subfinder)
+- ### [massdns](https://github.com/blechschmidt/massdns)
 
-### [Subdominator](https://github.com/RevoltSecurities/Subdominator)
+- ### [sublister](https://github.com/aboul3la/Sublist3r)
+
+- ### [Subdomainizer](https://github.com/nsonaniya2010/SubDomainizer)
+
+- ### [Subfinder](https://github.com/projectdiscovery/subfinder)
+
+- ### [Subdominator](https://github.com/RevoltSecurities/Subdominator)
+
+- ### [vhostscan](https://github.com/codingo/VHostScan)
 
 ### ***Guessing & Bruteforcing***
 
 ### [shuffleDNS](https://github.com/projectdiscovery/shuffledns)
 
 ### [altDNS](https://github.com/infosec-au/altdns)
+
+### ***Crawling***
+
+### [GoSpider](https://github.com/jaeles-project/gospider)
+
+### [Hakrawler](https://github.com/hakluke/hakrawler)
+
+## **Wordlists**
+
+- ### [trickest wordlists](https://github.com/trickest/wordlists)
