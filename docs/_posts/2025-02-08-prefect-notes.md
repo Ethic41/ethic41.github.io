@@ -162,3 +162,34 @@ COPY nginx.conf /etc/nginx/conf.d/
 
 EXPOSE 80
 ```
+
+#### Daemonizing workers
+
+```bash
+# create a systemd service file
+$ cat /etc/systemd/system/prefect-worker.service
+
+[Unit]
+Description=Prefect Docker Worker
+After=network.target
+
+[Service]
+# create a prefer user or use your own user
+User=prefect
+WorkingDirectory=/home/your-user/.prefect
+Environment="PREFECT_API_AUTH_STRING=xxxxxxxxx"
+ExecStart=/home/your-user/singer-server/.venv/bin/prefect worker start --pool docker-test-pool
+Restart=always
+StandardOutput=append:/var/log/prefect-docker-server.log
+StandardError=append:/var/log/prefect-docker-server.log
+
+[Install]
+WantedBy=multi-user.target
+
+# reload systemd
+$ sudo systemctl daemon-reload
+
+# enable and start the service
+$ sudo systemctl enable prefect-worker.service
+$ sudo systemctl start prefect-worker.service
+```
