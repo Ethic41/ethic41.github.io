@@ -6,7 +6,7 @@ categories: recon
 post_id: 8
 ---
 
-## Notes for learning recon and keeping track of tools and resources
+Often times I find myself trying to remember the name of a useful tool I saw somewhere on the internet, or some blogpost that I read a while ago. This is a collection of tools, techniques, and resources that I find useful for recon. This notes will InshaAllah be continuously updated.
 
 ### Robots.txt
 
@@ -107,3 +107,17 @@ Created by OWASP, Amass has in-depth attack surface discovery capability.
 ## **Wordlists**
 
 - ### [trickest wordlists](https://github.com/trickest/wordlists)
+
+- ### [SecLists](https://github.com/danielmiessler/SecLists)
+
+- ### [FuzzDB](https://github.com/fuzzdb-project/fuzzdb)
+
+- ### [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings)
+
+## **Wordlist Generation**
+
+- ### [CeWL](https://github.com/digininja/CeWL)
+
+- ### [WL](https://github.com/s0md3v/wl)
+
+- ### [Cook](https://github.com/giteshnxtlvl/cook)
