@@ -126,6 +126,8 @@ Created by OWASP, Amass has in-depth attack surface discovery capability.
 
 - ### [Protoscope](https://github.com/protocolbuffers/protoscope)
 
+- ### [blackboxprotobuf](https://github.com/nccgroup/blackboxprotobuf)
+
 ## **OOB & OAST Tools**
 
 - ### [Burp Collaborator](https://portswigger.net/burp/documentation/collaborator)
