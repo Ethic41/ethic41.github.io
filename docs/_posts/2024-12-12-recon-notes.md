@@ -116,8 +116,24 @@ Created by OWASP, Amass has in-depth attack surface discovery capability.
 
 ## **Wordlist Generation**
 
-- ### [CeWL](https://github.com/digininja/CeWL)
+### [CeWL](https://github.com/digininja/CeWL)
 
-- ### [WL](https://github.com/s0md3v/wl)
+### [WL](https://github.com/s0md3v/wl)
 
-- ### [Cook](https://github.com/giteshnxtlvl/cook)
+### [Cook](https://github.com/giteshnxtlvl/cook)
+
+## **GRPC & Protobuf**
+
+### [Protoscope](https://github.com/protocolbuffers/protoscope)
+
+## **OOB & OAST Tools**
+
+### [Burp Collaborator](https://portswigger.net/burp/documentation/collaborator)
+
+### [RequestBin](https://requestbin.com/)
+
+### [Webhook.site](https://webhook.site/)
+
+### [Hookbin](https://hookbin.com/)
+
+### [Interact.sh](https://app.interactsh.com/#/)
