@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Recon Notes
+title:  Hacking Notes & Tools
 date:   2024-12-12 16:07:44
 categories: recon
 post_id: 8
@@ -116,24 +116,24 @@ Created by OWASP, Amass has in-depth attack surface discovery capability.
 
 ## **Wordlist Generation**
 
-### [CeWL](https://github.com/digininja/CeWL)
+- ### [CeWL](https://github.com/digininja/CeWL)
 
-### [WL](https://github.com/s0md3v/wl)
+- ### [WL](https://github.com/s0md3v/wl)
 
-### [Cook](https://github.com/giteshnxtlvl/cook)
+- ### [Cook](https://github.com/giteshnxtlvl/cook)
 
 ## **GRPC & Protobuf**
 
-### [Protoscope](https://github.com/protocolbuffers/protoscope)
+- ### [Protoscope](https://github.com/protocolbuffers/protoscope)
 
 ## **OOB & OAST Tools**
 
-### [Burp Collaborator](https://portswigger.net/burp/documentation/collaborator)
+- ### [Burp Collaborator](https://portswigger.net/burp/documentation/collaborator)
 
-### [RequestBin](https://requestbin.com/)
+- ### [RequestBin](https://requestbin.com/)
 
-### [Webhook.site](https://webhook.site/)
+- ### [Webhook.site](https://webhook.site/)
 
-### [Hookbin](https://hookbin.com/)
+- ### [Hookbin](https://hookbin.com/)
 
-### [Interact.sh](https://app.interactsh.com/#/)
+- ### [Interact.sh](https://app.interactsh.com/#/)
