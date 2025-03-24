@@ -53,3 +53,5 @@ This is a list of websites, blogs, and researchers that are related to computer 
 [GRPC Web Hacking - part 1](https://infosecwriteups.com/hacking-into-grpc-web-a54053757a45) - By Amin Nasiri
 
 [GRPC Web Hacking - part 2](https://medium.com/@nxenon/hacking-into-grpc-web-part-2-f8540309e1e8) - By Amin Nasiri
+
+[Github Security Blog](https://github.blog/security/) - High quality security research from Github (should be checked regularly)
