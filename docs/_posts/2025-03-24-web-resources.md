@@ -55,3 +55,7 @@ This is a list of websites, blogs, and researchers that are related to computer 
 - [GRPC Web Hacking - part 2](https://medium.com/@nxenon/hacking-into-grpc-web-part-2-f8540309e1e8) - By Amin Nasiri
 
 - [Github Security Blog](https://github.blog/security/) - High quality security research from Github (should be checked regularly)
+
+- [kPwn Blog](https://kpwn.de/2023/05/javascript-analysis-for-pentesters/) - Javascript analysis
+  
+- [kayssel Blog](https://www.kayssel.com/)
