@@ -59,3 +59,5 @@ This is a list of websites, blogs, and researchers that are related to computer 
 - [kPwn Blog](https://kpwn.de/2023/05/javascript-analysis-for-pentesters/) - Javascript analysis
   
 - [kayssel Blog](https://www.kayssel.com/)
+
+- [Eric's Blog](http://www.catb.org/~esr/)
