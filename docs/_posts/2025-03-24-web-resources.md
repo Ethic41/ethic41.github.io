@@ -61,3 +61,5 @@ This is a list of websites, blogs, and researchers that are related to computer 
 - [kayssel Blog](https://www.kayssel.com/)
 
 - [Eric's Blog](http://www.catb.org/~esr/)
+
+- [WhyNotSecurity](https://whynotsecurity.com/blog/teamviewer/) - TeamViewer Vuln
