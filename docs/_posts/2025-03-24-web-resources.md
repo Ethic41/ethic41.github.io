@@ -63,3 +63,7 @@ This is a list of websites, blogs, and researchers that are related to computer 
 - [Eric's Blog](http://www.catb.org/~esr/)
 
 - [WhyNotSecurity](https://whynotsecurity.com/blog/teamviewer/) - TeamViewer Vuln
+
+- [PagedOut - Magazine](https://pagedout.institute/) - Magazine
+
+- [tmpout - Magazine](https://tmpout.sh/) - Magazine
