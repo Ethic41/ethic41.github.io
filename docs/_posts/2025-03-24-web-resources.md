@@ -67,3 +67,5 @@ This is a list of websites, blogs, and researchers that are related to computer 
 - [PagedOut - Magazine](https://pagedout.institute/) - Magazine
 
 - [tmpout - Magazine](https://tmpout.sh/) - Magazine
+
+- [FastAPI & Async SQLAlchemy](https://medium.com/@tclaitken/setting-up-a-fastapi-app-with-async-sqlalchemy-2-0-pydantic-v2-e6c540be4308)
