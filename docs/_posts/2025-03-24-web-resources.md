@@ -69,3 +69,13 @@ This is a list of websites, blogs, and researchers that are related to computer 
 - [tmpout - Magazine](https://tmpout.sh/) - Magazine
 
 - [FastAPI & Async SQLAlchemy](https://medium.com/@tclaitken/setting-up-a-fastapi-app-with-async-sqlalchemy-2-0-pydantic-v2-e6c540be4308)
+
+- [i0.rs](https://i0.rs/) - Security Research, CTF, and Bug Bounty
+
+- [HackerOne](https://www.hackerone.com/) - Bug Bounty
+
+- [Bugcrowd](https://www.bugcrowd.com/) - Bug Bounty
+
+- [Archie's reversing diary](https://archie-osu.github.io/) - Reverse Engineering
+
+- [Essential C](http://cslibrary.stanford.edu/101/) - Computer Science Library
