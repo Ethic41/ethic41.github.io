@@ -79,3 +79,5 @@ This is a list of websites, blogs, and researchers that are related to computer 
 - [Archie's reversing diary](https://archie-osu.github.io/) - Reverse Engineering
 
 - [Essential C](http://cslibrary.stanford.edu/101/) - Computer Science Library
+
+- [Jeremy Kun](https://www.jeremykun.com/) - Computer Science, Mathematics, and Programming (must read)
