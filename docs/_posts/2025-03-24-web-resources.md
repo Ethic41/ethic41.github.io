@@ -81,3 +81,5 @@ This is a list of websites, blogs, and researchers that are related to computer 
 - [Essential C](http://cslibrary.stanford.edu/101/) - Computer Science Library
 
 - [Jeremy Kun](https://www.jeremykun.com/) - Computer Science, Mathematics, and Programming (must read)
+
+- [https://pabloinsente.github.io/intro-linear-algebra/](https://pabloinsente.github.io/intro-linear-algebra/) - Linear Algebra
