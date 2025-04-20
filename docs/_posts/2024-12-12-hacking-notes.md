@@ -60,6 +60,8 @@ Created by OWASP, Amass has in-depth attack surface discovery capability.
 
 - ### [pugdns](https://github.com/c3l3si4n/pugdns)
 
+- ### [recollapse](https://github.com/0xacb/recollapse)
+
 ### ***Crawling***
 
 - ### [GoSpider](https://github.com/jaeles-project/gospider)
