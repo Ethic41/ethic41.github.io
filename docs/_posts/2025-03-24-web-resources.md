@@ -83,3 +83,10 @@ This is a list of websites, blogs, and researchers that are related to computer 
 - [Jeremy Kun](https://www.jeremykun.com/) - Computer Science, Mathematics, and Programming (must read)
 
 - [https://pabloinsente.github.io/intro-linear-algebra/](https://pabloinsente.github.io/intro-linear-algebra/) - Linear Algebra
+
+- [Ret2 Blog](https://blog.ret2.io/) - Ret2 Blog, Security Research, CTF, Reverse Engineering
+
+- [Ret2 WarGames](https://wargames.ret2.systems/levels/) - Ret2 Wargames, CTF, Reverse Engineering
+
+- [Deus x64](https://deusx64.ai/) - Play DeusX64, Pwn, Reverse Engineering, Ret2
+

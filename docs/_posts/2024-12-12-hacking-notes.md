@@ -151,4 +151,3 @@ Public assets directories can sometimes contain sensitive information like API k
 ### Burp Organizer
 
 Burp organizer is useful in keeping notes and organizing your attacks
-
