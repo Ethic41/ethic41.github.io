@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Rust Learning Notes
-date:   2025-05-02 06:21:30
+date:   2025-05-01 06:21:30
 categories: learning-rust
 post_id: 13
 ---
