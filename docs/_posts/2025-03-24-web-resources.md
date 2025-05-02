@@ -89,4 +89,3 @@ This is a list of websites, blogs, and researchers that are related to computer 
 - [Ret2 WarGames](https://wargames.ret2.systems/levels/) - Ret2 Wargames, CTF, Reverse Engineering
 
 - [Deus x64](https://deusx64.ai/) - Play DeusX64, Pwn, Reverse Engineering, Ret2
-
