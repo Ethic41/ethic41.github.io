@@ -3,7 +3,7 @@ layout: post
 title:  Computer Security Websites, Blogs & Researchers
 date:   2025-03-18 12:05:30
 categories: blackbox-rce
-post_id: 10
+post_id: 12
 ---
 
 This is a list of websites, blogs, and researchers that are related to computer security.

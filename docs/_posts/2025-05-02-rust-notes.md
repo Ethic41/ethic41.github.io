@@ -3,7 +3,7 @@ layout: post
 title:  Rust Learning Notes
 date:   2025-05-02 06:21:30
 categories: learning-rust
-post_id: 11
+post_id: 13
 ---
 
 This notes were taken while learning the Rust programming language, most of the notes are from the experimental [Rust Book](https://rust-book.cs.brown.edu/). Other sources maybe added later, the notes are separated by date taken.

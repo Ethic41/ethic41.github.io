@@ -3,7 +3,7 @@ layout: post
 title:  Solidity Notes
 date:   2025-02-14 15:50:05
 categories: solidity, blockchain
-post_id: 9
+post_id: 10
 ---
 
 Notes on solidity and blockchain. This notes will InshaAllah be continuously updated. Most of the notes are from the following sites
