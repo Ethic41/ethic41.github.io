@@ -111,3 +111,45 @@ fn main(){
 
 - rust allows declaring a variable with the name of a previously declared variable this is know as `shadowing`
 - when shadowing a previously declared variable, the type can be changed
+
+## 2025-05-08
+
+### **Rust Book - Chapter 3: Common Programming Concept - Data Types**
+
+#### **On Data Types**
+
+```rust
+let guess: u32 = "42".parse().expect("Not a number!");
+
+```
+
+converting `String` to a numeric type using `parse` requires explicit type annotation, the compiler can't infer it if not provided and will error at compile time
+
+- Rust is a statically typed language, this means that we must know the type of all variables at compile time
+- The compiler can infer the data type, but in cases where type can't be inferred then we must add type annotation like above
+
+### Scalar Types
+
+Rust has for primary scalar types: `integers`, `floats`, `booleans`, and `characters`
+
+#### Scalar Types - Integers
+
+- integer types include `u8`, `i8`, `u16`, `i16`, `u32`, `i32`, `u64`, `i64`, `u128`, `i128` where `u` is for unsigned and `i` is for signed
+- type suffix can be used such as `57u8` to represent 8 bit unsigned integer
+- visual separators are allowed as well such as `1_525_200` to represent `1525200`
+- when compiling in debug mode, rust will check `integer overflow` and `panic` at runtime but in release mode integers will overflow
+
+#### Scalar Types - Floats
+
+```rust
+
+fn main() {
+    let x = 2.0; // f64
+
+    let y: f32 = 3.0; // f32
+}
+
+```
+
+- in Rust all floating-point types are signed, and there are of two types `f32` and `f64`, the default type is `f64`
+- 
