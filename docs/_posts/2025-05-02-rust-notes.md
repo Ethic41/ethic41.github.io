@@ -153,3 +153,137 @@ fn main() {
 
 - in Rust all floating-point types are signed, and there are of two types `f32` and `f64`, the default type is `f64`
 - floating point numbers are represented in `IEEE-754` standard. The `f32` type is a single-precision 32-bit float and `f64` is a double-precision 64-bit float
+
+#### Scalar Types - Numeric Operations
+
+Rust supports all basics mathematical operations expected of the number types:
+
+```rust
+fn main() {
+    // addition
+    let sum = 5 + 10;
+
+    // subtraction
+    let difference = 95.5 - 4.3;
+
+    // multiplication
+    let product = 4 * 30;
+
+    // division
+    let quotient = 56.7 / 32.2;
+    let truncated = -5 / 3;
+
+    // remainder
+    let remainder = 43 % 5;
+}
+
+```
+
+#### Scalar Types - Booleans
+
+As in most other programming languages, the boolean type in Rust is `bool` and can be either `true` or `false`
+
+```rust
+
+fn main(){
+    let t = true;
+
+    let f: bool = false; // with explicit type annotation
+}
+
+```
+
+#### Scalar Types - Character Type
+
+The `char` type is rust most primitive alphabetic type. example:
+
+```rust
+fn main(){
+    let c = 'z';
+    let z: char = 'ℤ'; // with explicit type annotation
+    let heart_eyed_cat = '😻';
+}
+```
+
+- `char` is a 4-byte Unicode scalar value, representing a single character
+- `char` can represent more than just ASCII characters
+- single quotes are used to represent `char` literals
+
+### **Compound Types**
+
+Rust has two primitive compound types: `tuples` and `arrays`
+
+#### Compound Types - Tuples
+
+```rust
+
+fn main(){
+    let tup: (i32, f64, u8) = (500, 6.4, 1);
+    let (x, y, z) = tup; // destructuring
+    println!("The value of y is: {y}");
+    println!("The value of z is: {z}");
+    println!("The value of x is: {x}");
+
+    let five_hundred = tup.0;
+    let six_point_four = tup.1;
+    let one = tup.2;
+
+    // mutable tuple
+    let mut x: (i32, i32) = (1, 2);
+    x.0 = 0;
+    x.1 += 5;
+    println!("The value of x is: {x}");
+}
+```
+
+- tuples are fixed-length and can contain different types
+- tuples are created using parentheses `()`
+- tuples can be destructured to access their values
+- tuples can be mutable
+
+#### Compound Types - Arrays
+
+```rust
+fn main(){
+    let a = [1, 2, 3, 4, 5];
+
+    let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+    let a: [i32; 5] = [1, 2, 3, 4, 5]; // with explicit type annotation
+    let a = [3; 5]; // array of 5 elements, all initialized to 3
+
+    // accessing array elements
+    let first = a[0];
+    let second = a[1];
+}
+```
+
+- unlike tuples, must contain the same type
+- arrays in rust are fixed-length
+- arrays are created using square brackets `[]`
+- arrays are useful when you want your data to be allocated on the stack, instead of the heap
+- arrays are most useful when you know the size of the data and it will not change
+
+```rust
+
+use std::io;
+
+fn main() {
+    let a = [1, 2, 3, 4, 5];
+
+    println!("Enter an array index: ");
+
+    let mut index = String::new();
+
+    io::stdin()
+        .read_line(&mut index)
+        .expect("Failed to read line");
+
+    let index: usize = index
+        .trim()
+        .parse()
+        .expect("Index entered was not a number");
+    
+    let element = a[index];
+    println!("The value of the element at index {index} is: {element}");
+}
