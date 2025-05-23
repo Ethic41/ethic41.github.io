@@ -83,7 +83,7 @@ fn main() {
 const THREE_HOURS_IN_SECONDS: u32 = 60 * 60 * 3;
 ```
 
-- `const` is the keyword used to declare constants instead of `let` 
+- `const` is the keyword used to declare constants instead of `let`
 - like immutable variables constants are never allowed to change
 - constants can't be made mutable by using the `mut` keyword
 - type annotation is required when declaring constants
@@ -152,4 +152,4 @@ fn main() {
 ```
 
 - in Rust all floating-point types are signed, and there are of two types `f32` and `f64`, the default type is `f64`
-- 
+- floating point numbers are represented in `IEEE-754` standard. The `f32` type is a single-precision 32-bit float and `f64` is a double-precision 64-bit float
