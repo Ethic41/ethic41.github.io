@@ -287,3 +287,4 @@ fn main() {
     let element = a[index];
     println!("The value of the element at index {index} is: {element}");
 }
+```
