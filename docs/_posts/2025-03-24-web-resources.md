@@ -89,3 +89,19 @@ This is a list of websites, blogs, and researchers that are related to computer 
 - [Ret2 WarGames](https://wargames.ret2.systems/levels/) - Ret2 Wargames, CTF, Reverse Engineering
 
 - [Deus x64](https://deusx64.ai/) - Play DeusX64, Pwn, Reverse Engineering, Ret2
+
+- [Sogen Emulator](https://sogen.dev/) - A high-performance Windows user space emulator
+
+- [Secret Club](https://secret.club/) - A collection of security research, CTF, and bug bounty writeups
+
+- [Distill Publications](https://distill.pub/) - A journal of machine learning research, clear, concise, and beautiful
+
+- [Voorivex's Team](https://blog.voorivex.team/) - A blog about security research, hacking, and bug bounty
+
+- [HackerOne's Hacktivity](https://www.hackerone.com/hacktivity) - A collection of public bug bounty reports
+
+- [InfoGuard Labs](https://labs.infoguard.ch/) - Infoguard Labs - A blog about security research, fuzzing, and reverse engineering
+
+- [Karmain Security](https://karmainsecurity.com/blog) - Karmain Security - A blog about security research, fuzzing, and reverse engineering
+
+- [Siguza's blog](https://blog.siguza.net/tachy0n/) - Siguza's blog - A blog about security research, Jailbreaks and reverse engineering
