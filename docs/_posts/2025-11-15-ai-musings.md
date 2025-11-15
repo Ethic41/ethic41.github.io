@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  AI Musings: How I used AI to quickly manage my DNS migrations
+title:  AI Musings - How I used AI to quickly manage my DNS migrations
 date:   2025-11-15 11:20:33
 categories: ai-musings
 post_id: 14
