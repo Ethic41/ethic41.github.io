@@ -105,3 +105,7 @@ This is a list of websites, blogs, and researchers that are related to computer 
 - [Karmain Security](https://karmainsecurity.com/blog) - Karmain Security - A blog about security research, fuzzing, and reverse engineering
 
 - [Siguza's blog](https://blog.siguza.net/tachy0n/) - Siguza's blog - A blog about security research, Jailbreaks and reverse engineering
+
+- [Async FastAPI & SQLAlchemy](https://praciano.com.br/fastapi-and-async-sqlalchemy-20-with-pytest-done-right.html) - A guide to setting up FastAPI with Async SQLAlchemy and Pytest
+
+- [Async FastAPI, Pydantic & SQLAlchemy](https://medium.com/@tclaitken/setting-up-a-fastapi-app-with-async-sqlalchemy-2-0-pydantic-v2-e6c540be4308) - A guide to setting up FastAPI with Async SQLAlchemy and Pydantic v2
